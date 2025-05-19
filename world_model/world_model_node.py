@@ -9,6 +9,9 @@ class WorldModelNode(Node):
         self.create_subscription(PoseStamped, '/robot_pose', self.robot_pose_callback, 10)
         self.create_subscription(PoseStamped, '/ball_pose', self.ball_pose_callback, 10)
         self.world_pub = self.create_publisher(String, '/world_state', 10)  # TODO: Replace String with custom msg
+
+        self.get_logger().info('World model node started.')
+
         # TODO: Implement world model logic
 
     def robot_pose_callback(self, msg):
